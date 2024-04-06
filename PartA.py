@@ -21,13 +21,22 @@ def computeWordFrequencies(tokenList) -> dict:
     """
     Runtime Complexity:
     """
+    tokenCount = {}
+    for token in tokenList:
+        if token in tokenCount:
+            tokenCount[token] += 1 
+        else:
+            tokenCount[token] = 1
+    return tokenCount
 
 def printFrequencies(tokenCount) -> None:
     """
     Runtime Complexity:
     """
+    for token in tokenCount:
+        print(token + " " + str(tokenCount[token]))
 
 if __name__ == "__main__":
     tokenList = tokenize("text1.txt")
-    for token in tokenList:
-        print(token)
+    tokenCount = computeWordFrequencies(tokenList)
+    printFrequencies(tokenCount)
