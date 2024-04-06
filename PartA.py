@@ -33,10 +33,11 @@ def printFrequencies(tokenCount) -> None:
     """
     Runtime Complexity:
     """
-    for token in tokenCount:
-        print(token + " " + str(tokenCount[token]))
+    orderedCount = sorted(tokenCount.items(), key=lambda pair: pair[1], reverse=True)
+    for pair in orderedCount:
+        print(pair[0] + " " + str(pair[1]))
 
 if __name__ == "__main__":
-    tokenList = tokenize("text1.txt")
+    tokenList = tokenize("text3.txt")
     tokenCount = computeWordFrequencies(tokenList)
     printFrequencies(tokenCount)
