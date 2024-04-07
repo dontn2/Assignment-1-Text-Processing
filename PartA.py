@@ -10,7 +10,8 @@ def tokenize(textFilePath) -> list:
             if char.isalnum():
                 token = token + char.lower()
             else:
-                tokenList.append(token)
+                if not token == "":
+                    tokenList.append(token)
                 token = ""
                 if char == "":
                     break
@@ -38,6 +39,6 @@ def printFrequencies(tokenCount) -> None:
         print(pair[0] + " " + str(pair[1]))
 
 if __name__ == "__main__":
-    tokenList = tokenize("text3.txt")
+    tokenList = tokenize("canvas2.txt")
     tokenCount = computeWordFrequencies(tokenList)
     printFrequencies(tokenCount)
